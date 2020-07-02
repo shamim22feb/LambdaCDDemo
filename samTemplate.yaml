@@ -21,3 +21,10 @@ Resources:
       Environment:
         Variables:
           REGION: us-east-1
+          
+  Primerinvoke:
+    Type: AWS::CloudFormation::CustomResource
+    DependsOn: CDDemoLambda
+    Version: "1.0"
+    Properties:
+      ServiceToken: !GetAtt CDDemoLambda.Arn
